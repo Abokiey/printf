@@ -6,5 +6,9 @@ int printf(const char* format, ...);
 
 
 
+#define BUFF_SIZE 1024
+
+
+
 
 #endif
