@@ -4,9 +4,9 @@
 #include <unistd.h>
 
 /**
- * print_char - print single char
+ * print_char - prints a single char
  * @args: argument list
- * Return: number of printed char
+ * Return: number of printed chars
  */
 
 int print_char(va_list args)
@@ -22,9 +22,9 @@ int print_char(va_list args)
 }
 
 /**
- * print_str - print string
+ * print_str - prints a string
  * @args: argument list
- * Return: number of printed char
+ * Return: number of printed chars
  */
 
 int print_str(va_list args)
@@ -44,7 +44,7 @@ int print_str(va_list args)
 /**
  * print_str_unprintable - unprint some characters
  * @args: argument list
- * Return: number of printed char
+ * Return: number of the printed chars
  */
 
 int print_str_unprintable(va_list args)
@@ -64,7 +64,7 @@ int print_str_unprintable(va_list args)
 /**
  * print_str_reverse - reverse a string
  * @args: arg list
- * Return: number printed char
+ * Return: number of a printed char
  */
 int print_str_reverse(va_list args)
 {
@@ -111,7 +111,7 @@ int print_str_reverse(va_list args)
 /**
  * print_rot13 - print string with rot13
  * @args: argument list
- * Return: number of printed char
+ * Return: number of printed chars
  */
 
 int print_rot13(va_list args)
