@@ -1,130 +1,130 @@
-#include <stddef.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include "main.h"
+#include <stdio.h>
+#include <stddef.h>
+#include <stdlib.h>
 
 /**
- * print_unsigned_number - print unsigned number
- * @n: unsigned int to print
- * Return: number of printed chars
+ * print_unsigned_number - prints unsigned number
+ * @n: the unsigned int to be printed
+ * Return: printed chars
  */
 
 int print_unsigned_number(unsigned int n)
 {
 	int count = 0;
-	unsigned int nb = n;
+	unsigned int i = n;
 
-	if (nb <= 9)
+	if (i <= 9)
 	{
-		_putchar(nb + '0');
-		return (1);
+	_putchar(i + '0');
+	return (1);
 	}
-	if (nb > 9)
+	if (i > 9)
 	{
-		count = print_unsigned_number(nb / 10) + 1;
-		_putchar(nb % 10 + '0');
-		return (count);
+	count = print_unsigned_number(i / 10) + 1;
+	_putchar(i % 10 + '0');
+	return (count);
 	}
 	return (0);
 }
 
 /**
- * print_number - display the number contained in an int
- * @n: int to print
- * Return: number of char
+ * print_number - displays the number contained in an int
+ * @n: int to be printed
+ * Return: number of chars
  */
 int print_number(int n)
 {
-	unsigned int nb;
+	unsigned int i;
 	int count = 0;
 
-	nb = n;
+	i = n;
 	if (n < 0)
 	{
-		_putchar('-');
-		count++;
-		nb = -nb;
+	_putchar('-');
+	count++;
+	i = -i;
 	}
-	if (nb <= 9)
+	if (i <= 9)
 	{
-		count += _putchar(nb + '0');
-		return (count);
+	count += _putchar(i + '0');
+	return (count);
 	}
-	if (nb > 9)
+	if (i > 9)
 	{
-		count += print_number(nb / 10) + 1;
-		_putchar(nb % 10 + '0');
-		return (count);
+	count += print_number(i / 10) + 1;
+	_putchar(i % 10 + '0');
+	return (count);
 	}
 	return (0);
 }
 /**
- * _nbr_len - length of a number
+ * _nbr_len - gives the length of a number
  * @prmNumber: number
  * Return: length of the number
  */
 
 int _nbr_len(int prmNumber)
 {
-	int cLoop = 0, number;
+	int p = 0, n;
 
 	if (prmNumber == 0)
 		return (1);
 
-	number = prmNumber;
+	n = prmNumber;
 
-	if (number < 0)
+	if (n < 0)
 	{
-		number *= -1;
-		cLoop++;	/* for the sign char */
+	n *= -1;
+	p++;
 	}
 
-	while (number)
+	while (n)
 	{
-		number /= 10;
-		cLoop++;
+	n /= 10;
+	p++;
 	}
 
-	return (cLoop);
+	return (p);
 }
 
 /**
- * _itoa - Convert an int to a string
- * @prmNumber: int to convert
+ * _itoa - it converts an int into a string
+ * @prmNumber: int to be converted
  * Return: converted string
  */
 
 char *_itoa(int prmNumber)
 {
 	char *s;
-	int cLoop;
-	long number;
+	int p;
+	long n;
 
-	number = prmNumber;
-	cLoop = _nbr_len(number);
-	s = malloc(sizeof(char) * cLoop + 1);
+	n = prmNumber;
+	p = _nbr_len(n);
+	s = malloc(sizeof(char) * p + 1);
 
 	if (s == NULL)
 	{
-		return (NULL);
+	return (NULL);
 	}
 
-	s[cLoop] = '\0';
+	s[p] = '\0';
 
-	if (number == 0)
+	if (n == 0)
 	{
-		s = "0";
+	s = "0";
 	}
-	else if (number < 0)
+	else if (n < 0)
 	{
-		s[0] = '-';
-		number *= -1;
+	s[0] = '-';
+	n *= -1;
 	}
 
-	while (number)
+	while (n)
 	{
-		s[--cLoop] = number % 10 + 48;
-		number /= 10;
+	s[--p] = n % 10 + 48;
+	n /= 10;
 	}
 
 	return (s);

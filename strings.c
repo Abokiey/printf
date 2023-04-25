@@ -1,6 +1,6 @@
+#include "main.h"
 #include <unistd.h>
 #include <stdlib.h>
-#include "main.h"
 
 /**
  * _putchar - writes the character c to stdout
@@ -14,43 +14,41 @@ int _putchar(char c)
 }
 
 /**
- * _puts - write all char from string to stdout
- * @str: string to print
+ * _puts - writes all chars from string to stdout
+ * @str: string to be printed
  * @ascii: enable ascii restriction
- * Return: number of printed char
+ * Return: number of printed chars
  */
 
 int _puts(char *str, int ascii)
 {
 	char *s;
-	int i = 0, sum = 0;
+	int j = 0, sum = 0;
 
-	while (str[i])
+	while (str[j])
 	{
-		if (((str[i] >= 0 && str[i] < 32) || str[i] >= 127) && ascii)
+		if (((str[j] >= 0 && str[j] < 32) || str[j] >= 127) && ascii)
 		{
-			s = convert_base(str[i], 16, 1);
+			s = convert_base(str[j], 16, 1);
 			sum += write(1, "\\x", 2);
-			if (str[i] >= 0 && str[i] < 16)
-				sum += _putchar('0');
+			if (str[j] >= 0 && str[j] < 16)
+			sum += _putchar('0');
 			sum += _puts(s, 0);
 			free(s);
-			i++;
+			j++;
 		}
 		else
 		{
-			sum += _putchar(str[i]);
-			i++;
+		sum += _putchar(str[j]);
+		j++;
 		}
 	}
 	return (sum);
 }
 
 /**
- * _strlen_recursion - return the length of a string
- *
- * @s: char pointer
- *
+ * _strlen_recursion - returns the length of a string
+ * @s: is a char pointer
  * Return: the length of a string
  */
 int _strlen_recursion(char *s)
@@ -67,16 +65,13 @@ int _strlen_recursion(char *s)
 
 /**
  * _strdup - a pointer to a newly allocated space in memory,
- *           which contains a copy of the string given as a parameter.
- *
- * @str: char pointer to copy
- *
+ * @str: char pointer to be copied
  * Return: a new char pointer
  */
 char *_strdup(char *str)
 {
 	char *s;
-	int cLoop;
+	int p;
 
 	if (str == NULL)
 	{
@@ -90,9 +85,9 @@ char *_strdup(char *str)
 		return (NULL);
 	}
 
-	for (cLoop = 0; cLoop < _strlen_recursion(str) + 1; cLoop++)
+	for (p = 0; p < _strlen_recursion(str) + 1; p++)
 	{
-		s[cLoop] = str[cLoop];
+		s[p] = str[p];
 	}
 
 	return (s);
