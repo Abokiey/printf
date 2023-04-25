@@ -4,7 +4,7 @@
 
 /**
  * get_op - select function for conversion char
- * @c: char to check
+ * @c: chars to check
  * Return: pointer to function
  */
 
