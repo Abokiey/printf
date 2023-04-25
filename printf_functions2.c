@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 /**
- * print_unsigned - manage unsigned int
+ * print_unsigned - prints unsigned int
  * @args: argument list
  * Return: value number of printed chars
  */
@@ -16,7 +16,7 @@ int print_unsigned(va_list args)
 	return (print_unsigned_number(argument));
 }
 /**
- * print_ptr - print adress
+ * print_ptr - prints adress of char
  * @args: argument void
  * Return: number of printed char
  */
