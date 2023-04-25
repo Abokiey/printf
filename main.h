@@ -44,11 +44,11 @@ int _nbr_len(int prmNumber);
 
 int _strlen_recursion(char *s);
 
-int convert_alpha_numeric(int nb, int upper);
+int convert_alpha_numeric(int num, int upper);
 
 char *convert_rot13(char *str);
 
-char *convert_base(unsigned long nb, unsigned int base, int upper);
+char *convert_base(unsigned long num, unsigned int base, int upper);
 
 char *_strdup(char *str);
 

@@ -2,32 +2,32 @@
 #include "main.h"
 /**
  * convert_alpha_numeric - convert digits to char
- * @nb: digit or number
- * @upper: upper case check
+ * @num: a digitdigit number
+ * @upper: if isupper
  * Return: converted value
  */
 
-int convert_alpha_numeric(int nb, int upper)
+int convert_alpha_numeric(int num, int upper)
 {
-	if (nb >= 10)
-		return (nb - 10 + ((upper) ? 'A' : 'a'));
+	if (num >= 10)
+		return (num - 10 + ((upper) ? 'A' : 'a'));
 	else
-		return (nb + '0');
+		return (num + '0');
 }
 
 /**
  * convert_base - convert unsigned from base 10 to base
- * @nb: decimal number
+ * @num: decimal number
  * @base: base to convert from
- * @upper: upper case check
+ * @upper: if isupper
  * Return: converted number to string
  */
 
-char *convert_base(unsigned long nb, unsigned int base, int upper)
+char *convert_base(unsigned long num, unsigned int base, int upper)
 {
 	int i = 0;
 	char *str;
-	unsigned long nbr = nb;
+	unsigned long nbr = num;
 
 	while (nbr >= base)
 	{
@@ -41,16 +41,16 @@ char *convert_base(unsigned long nb, unsigned int base, int upper)
 
 	while (i >= 0)
 	{
-		nbr = nb % base;
+		nbr = num % base;
 		str[i] = convert_alpha_numeric(nbr, upper);
-		nb /= base;
+		num /= base;
 		i--;
 	}
 	return (str);
 }
 
 /**
- * convert_base_pointer - convert pointer void to ul
+ * convert_base_pointer - convert pointer void to unsigned long
  * @p: pointer
  * Return: converted string
  */
